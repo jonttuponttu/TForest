@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            background-color: #111; /* Dark background color */
+            overflow: hidden; /* Hide overflow content */
         }
         #play-button {
             position: absolute;
@@ -29,10 +31,20 @@
             cursor: pointer;
             transition: top 1s ease; /* button descent animation */
         }
+        #forest {
+            position: absolute;
+            bottom: -100px; /* start position below the viewport */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: white;
+            transition: bottom 1s ease; /* forest ascent animation */
+        }
     </style>
 </head>
 <body>
     <button id="play-button">Play</button>
+    <div id="forest">[Forest]</div>
 
     <script>
         // Function to handle the button click
@@ -46,6 +58,7 @@
         // Animate the play button descent
         window.onload = function() {
             document.getElementById("play-button").style.top = "50%"; // Descend to center
+            document.getElementById("forest").style.bottom = "50%"; // Ascend to center
         };
     </script>
 </body>
