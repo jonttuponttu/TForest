@@ -1,1 +1,52 @@
-work work work
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        #play-button {
+            position: absolute;
+            top: -100px; /* start position above the viewport */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 60px;
+            background-color: red;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            transition: top 1s ease; /* button descent animation */
+        }
+    </style>
+</head>
+<body>
+    <button id="play-button">Play</button>
+
+    <script>
+        // Function to handle the button click
+        function handleClick() {
+            window.location.href = "Tgame.html"; // Redirect to the game page
+        }
+
+        // Add event listener to the play button
+        document.getElementById("play-button").addEventListener("click", handleClick);
+
+        // Animate the play button descent
+        window.onload = function() {
+            document.getElementById("play-button").style.top = "50%"; // Descend to center
+        };
+    </script>
+</body>
+</html>
