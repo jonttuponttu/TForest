@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TForest RPG Game</title>
+</head>
+<body>
+    <marquee behavior="slide" direction="down" scrollamount="5">
+        <h1>TForest RPG Game</h1>
+    </marquee>
+    <p>Welcome to the world of Adventure!</p>
+    <p>You find yourself in a dark forest. What do you want to do?</p>
+    <marquee behavior="slide" direction="up" scrollamount="5">
+        <button onclick="startAction('explore')">Explore</button>
+        <button onclick="startAction('rest')">Rest</button>
+    </marquee>
+
+    <script>
+        function startAction(action) {
+            var button = event.target;
+            button.disabled = true;
+            var dotsAnimation = setInterval(function() {
+                if (button.textContent.endsWith('...!')) {
+                    button.textContent = 'Action';
+                } else {
+                    button.textContent += '.';
+                }
+            }, 500);
+
+            setTimeout(function() {
+                clearInterval(dotsAnimation);
+                if (action === 'explore') {
+                    explore();
+                } else if (action === 'rest') {
+                    rest();
+                }
+                button.textContent = 'Action';
+                button.disabled = false;
+            }, 5000);
+        }
+
+        function explore() {
+            var outcome = Math.random();
+            if (outcome < 0.25) {
+                alert("You found a treasure!");
+            } else if (outcome < 0.5) {
+                alert("You encountered a monster and got hurt!");
+            } else {
+                alert("You continue exploring but found nothing...");
+            }
+        }
+
+        function rest() {
+            alert("You rested and regained some health.");
+        }
+    </script>
+</body>
+</html>
